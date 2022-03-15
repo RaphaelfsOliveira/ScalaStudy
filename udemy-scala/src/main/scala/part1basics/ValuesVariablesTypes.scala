@@ -1,3 +1,5 @@
+package playground
+
 object ValuesVariablesTypes extends App {
 
     // VALS are imutable
