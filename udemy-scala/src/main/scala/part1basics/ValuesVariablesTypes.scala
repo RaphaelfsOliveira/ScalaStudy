@@ -35,7 +35,14 @@ object ValuesVariablesTypes extends App {
     println(aFloat)
     println(aDouble)
 
-    // variables
-    var
+    // variables are mutable
+    var z: Int = 1
+    println(z)
+
+    z += 1
+    println(z)
+    
+    z += 1
+    println(z)
 
 }
