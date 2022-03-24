@@ -27,6 +27,19 @@ object StringOps extends App {
     // Scala-specifir: String interpolators
 
     // S-interpolators
-    
+    val name = "David"
+    val age = 12
+    val greeting = s"Hello, my name is $name and I am $age years old."
+    println(greeting)
+
+    val greetingB = s"Hello, my name is $name and I am ${age + 5} years old."
+    println(greetingB)
+
+    // F-interpolators
+    val speed = 1.2f
+    val myth = f"$name can eat $speed%2.2f burguers per minute"
+    println(myth)
+
+    // raw-interpolators
 
 }
