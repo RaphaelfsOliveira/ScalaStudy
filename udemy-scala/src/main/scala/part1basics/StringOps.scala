@@ -41,5 +41,9 @@ object StringOps extends App {
     println(myth)
 
     // raw-interpolators
+    println(raw"This is a \n newline")
+
+    val escaped: String = "This is a \n newline"
+    println(raw"$escaped")
 
 }
