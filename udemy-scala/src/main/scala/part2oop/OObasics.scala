@@ -19,6 +19,10 @@ class Person(name: String, val age: Int = 0) {
         println(s"Hi, I am $name, $age years old")
     }
 
+    def getName(): String = {
+        this.name
+    }
+
     // multiple contructors
     def this(name: String) = this(name, 0)
 
@@ -69,16 +73,18 @@ class Counter(val count: Int) {
 }
 
 object OObasics extends App {
+    
     val person = new Person("John", 37)
     
-    println(person)
     println(person.age)
     println(person.x)
     person.greet("Daniel")
     person.greet()
+    println("######################################")
 
     val person2 = new Person()
-    println(person2)
+    println(person2.getName)
+    println("######################################")
 
     val writer = new Writer("Fiódor", "Dostoiévski", 1821)
     val novel = new Novel("Memórias do subsolo", 1864, writer)
@@ -88,11 +94,9 @@ object OObasics extends App {
     println(novel.isWrittenBy(writer))
 
     val novel2 = novel.copy(2001)
-    println(novel2)
     println(novel2.yearOfRelease)
 
     val newBook = writer.writeNewBook("Crime e Castigo", 1990)
-    println(newBook)
     println(newBook.description)
 
 }
