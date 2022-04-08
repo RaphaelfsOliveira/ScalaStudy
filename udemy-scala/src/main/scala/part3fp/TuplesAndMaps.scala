@@ -33,16 +33,19 @@ object TuplesAndMaps extends App {
 
     // functionals on maps
     println(
+        "toLowerCase -> ",
         phonebook.map(x => x._1.toLowerCase -> x._2)
     )
 
     // filterKeys
     println(
+        "filterKeys -> ",
         phonebook.filterKeys(x => x.startsWith("J")).toMap
     )
 
     // mapValues
     println(
+        "mapValues -> ",
         phonebook.mapValues(n => n * 10).toMap
     )
 
