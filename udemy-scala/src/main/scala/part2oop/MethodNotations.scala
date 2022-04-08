@@ -5,7 +5,7 @@ import scala.language.postfixOps
 
 object MethodNotations extends App {
     
-    class Person(val name: String, favoriteMovie: String) {
+    class Person(val name: String, favoriteMovie: String, age: Int = 0) {
         
         def likes(movie: String): Boolean = {
             movie == favoriteMovie
@@ -19,11 +19,40 @@ object MethodNotations extends App {
             s"${this.name} and ${person.name}"
         }
 
+        def +(person: Person, favoriteMovie: String): String = {
+            val newPerson = new Person(person.name, favoriteMovie)
+            s"${newPerson.name} (${favoriteMovie})"
+        }
+
         def unary_! : String = s"$name, what the heck?!"
 
         def isAlive: Boolean = true
 
-        def apply(): String = s"Hi, my name is $name and i like $favoriteMovie"
+        def apply(): Map[String, Any] = {
+            Map(
+                "name" -> this.name,
+                "favoriteMovie" -> this.favoriteMovie,
+                "age" -> this.age
+            )
+        }
+
+        def apply(ageMore: Int): Map[String, Any] = {
+            Map(
+                "name" -> this.name,
+                "favoriteMovie" -> this.favoriteMovie,
+                "age" -> this.age.+(ageMore)
+            )
+        }
+
+        def unary_+ : Person = {
+            new Person(this.name, this.favoriteMovie, this.age + 1)
+        }
+
+        def learns(language: String): String = s"$name is learning $language"
+
+        def learnsScala : String = {
+            this learns "Scala"
+        }
     }
 
     val mary = new Person("Mary", "Inception")
@@ -71,5 +100,17 @@ object MethodNotations extends App {
     println(mary())
 
     // exercises #############################
+    println("######### Exercises #########")
+    
+    println( mary.+(mary, "the rockstar") )
+
+    println( (+mary)() )
+
+    println(mary learns "Python")
+
+    println(mary learnsScala)
+
+    println(mary(10))
+    
 
 }
