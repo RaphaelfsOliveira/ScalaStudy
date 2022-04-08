@@ -18,6 +18,11 @@ class Person(name: String, val age: Int = 0) {
     def greet(): Unit = {
         println(s"Hi, I am $name, $age years old")
     }
+
+    // multiple contructors
+    def this(name: String) = this(name, 0)
+
+    def this() = this("John Doe")
 }
 
 class Writer(firstName: String, lastName: String, bithdayYear: Int) {
@@ -64,13 +69,16 @@ class Counter(val count: Int) {
 }
 
 object OObasics extends App {
-    // val person = new Person("John", 37)
+    val person = new Person("John", 37)
     
-    // println(person)
-    // println(person.age)
-    // println(person.x)
-    // person.greet("Daniel")
-    // person.greet()
+    println(person)
+    println(person.age)
+    println(person.x)
+    person.greet("Daniel")
+    person.greet()
+
+    val person2 = new Person()
+    println(person2)
 
     val writer = new Writer("Fiódor", "Dostoiévski", 1821)
     val novel = new Novel("Memórias do subsolo", 1864, writer)
