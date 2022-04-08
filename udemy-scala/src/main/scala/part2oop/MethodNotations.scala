@@ -4,6 +4,7 @@ import scala.language.postfixOps
 
 
 object MethodNotations extends App {
+    
     class Person(val name: String, favoriteMovie: String) {
         
         def likes(movie: String): Boolean = {
@@ -21,10 +22,11 @@ object MethodNotations extends App {
         def unary_! : String = s"$name, what the heck?!"
 
         def isAlive: Boolean = true
+
+        def apply(): String = s"Hi, my name is $name and i like $favoriteMovie"
     }
 
     val mary = new Person("Mary", "Inception")
-    
 
     // INFIX notation = operator notation
     println("######### INFIX notation #########")
@@ -62,5 +64,12 @@ object MethodNotations extends App {
     println("######### POSTFIX notation #########")
     println(mary.isAlive)
     println(s"""mary isAlive -> ${mary isAlive}""")
+
+    // APPLY
+    println("######### APPLY #########")
+    println(mary.apply())
+    println(mary())
+
+    // exercises #############################
 
 }
