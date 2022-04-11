@@ -19,7 +19,6 @@ object Empty extends MyList {
     def printElements: String = "[]"
 }
 
-
 class Cons(h: Any, t: MyList) extends MyList {
     def head: Any = h
     def tail: MyList = t
