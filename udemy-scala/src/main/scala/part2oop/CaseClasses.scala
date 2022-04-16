@@ -14,8 +14,6 @@ object CaseClasses extends App {
   println(jack.toString)
   println(jack)
 
-  println(jack.isInstanceOf[Person])
-
   // 3. equals and hashCode implemented OOTB
   val john = new Person(name="John", age=37)
   val jack2 = new Person(name="Jack", age=35)
@@ -29,5 +27,14 @@ object CaseClasses extends App {
 
   println(s"jack3 == jack2 -> ${jack3 == jack2}")
   println(jack4)
+
+  // 5. CCs have companion objects
+  val thePerson = Person
+  val mary = Person("Mary", 23)
+
+  println(s"companion objects -> ${thePerson.toString}")
+  println(mary.isInstanceOf[Person])
+
+  println(mary.toString)
 
 }
