@@ -36,5 +36,6 @@ object CaseClasses extends App {
   println(mary.isInstanceOf[Person])
 
   println(mary.toString)
+  
 
 }
