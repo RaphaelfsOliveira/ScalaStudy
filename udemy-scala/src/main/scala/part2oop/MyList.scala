@@ -37,6 +37,7 @@ object ListTest extends App {
 
     val list2 = list.add(1)
     val list3 = list2.add("test")
+    val list4 = list3.add(0.007)
 
-    println(list3.toString)
+    println(list4.toString)
 }
