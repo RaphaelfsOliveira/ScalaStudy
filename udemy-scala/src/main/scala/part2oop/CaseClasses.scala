@@ -58,6 +58,7 @@ object CaseClasses extends App {
   val jsonData = """{"name":"Barcelona","funActivity":"Eat tapas","latitude":41.39}"""
   val barcelona = upickle.default.read[City](jsonData)
 
+  println(barcelona.isInstanceOf[City]) // City
   println(barcelona.getClass) // City
   println(s"name -> ${barcelona.name}")
   println(s"funActivity -> ${barcelona.funActivity}")
