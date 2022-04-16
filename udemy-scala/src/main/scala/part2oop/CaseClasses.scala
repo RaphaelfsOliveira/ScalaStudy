@@ -64,4 +64,12 @@ object CaseClasses extends App {
   println(s"funActivity -> ${barcelona.funActivity}")
   println(s"latitude -> ${barcelona.latitude}") // 41.39
 
+  println("\n ### 7. CCs Have extractor patters = CCs can be used in PATTERN MATCHING ###")
+  // 7. CCs Have extractor patters = CCs can be used in PATTERN MATCHING
+  case object UnitedKingdom {
+    def name: String = "The UK of GB and NI"
+  }
+  println(UnitedKingdom.name)
+  println(UnitedKingdom.toString)
+  
 }
