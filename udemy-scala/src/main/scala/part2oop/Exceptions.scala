@@ -42,38 +42,46 @@ object Exceptions extends App {
   val exception = new MyException
 //  throw exception
 
-//  val memoryException = new OutOfMemoryError
-  val stackException = new StackOverflowError
+  // java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+  //  val array = Array.ofDim(Int.MaxValue)
 
-//  throw memoryException
-  throw stackException
+  //  java.lang.StackOverflowError
+//  def infinite: Int = 1 + infinite
+//  val noLimit = infinite
 
-  class PocketCalculator {
-    def add(x: Int, y: Int): AnyVal = {
-      try {
-        x + y
-      } catch {
-        case x > Int.MaxValue => throw StackOverflowError
-        case y > Int.MaxValue => throw StackOverflowError
-      } finally {
-        println("error")
-      }
+  class OverflowExcepction extends RuntimeException
+  class UnderflowException extends RuntimeException
+  class MathCalculationException extends RuntimeException("Division by 0")
+
+  object PocketCalculator {
+    def add(x: Int, y: Int): Any = {
+      val result = x + y
+      if (x > 0 && y > 0 && result < 0) throw new OverflowExcepction
+      else if (x < 0 && y < 0 && result > 0) throw new UnderflowException
+      else result
     }
 
-    def subtract(x: Int, y: Int): AnyVal = {
-      try {
-        x - y
-      } catch {
-        case x > Int.MinValue => throw IndexOutOfBoundsException
-        case y > Int.MinValue => throw IndexOutOfBoundsException
-      } finally {
-        println("error")
-      }
+    def subtract(x: Int, y: Int): Any = {
+      val result = x - y
+      if (x > 0 && y < 0 && result < 0) throw new OverflowExcepction
+      else if (x < 0 && y > 0 && result > 0) throw new UnderflowException
+      else result
+    }
+
+    def multiply(x: Int, y: Int): Any = {
+      val result = x * y
+      if (x > 0 && y > 0 && result < 0) throw new OverflowExcepction
+      else if (x > 0 && y < 0 && result < 0) throw new UnderflowException
+      else result
+    }
+
+    def divide(x: Int, y: Int): Any = {
+      if (y == 0) throw new MathCalculationException
+      else x / y
     }
 
   }
 
-
-
+  println(PocketCalculator.divide(2, 0))
 
 }
