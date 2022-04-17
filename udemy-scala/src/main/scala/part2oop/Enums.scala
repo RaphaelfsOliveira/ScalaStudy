@@ -1,29 +1,30 @@
 package part2oop
 
-import java.security.Permission
+object Enums extends App {
 
-object Enums {
+  object Permissions extends Enumeration {
+    type Permissions = Value
 
-    // object Permissions {
-    //     enum READ, WRITE, EXECUTE, NONE = Value
+    val READ, WRITE, EXECUTE, NONE = Value
+  }
 
-    //     def openDocument(): Unit = {
-    //         if (this == READ) println("opening document...")
-    //     }
-    // }
+  case class Permissions(permissions: Permissions.Value) {
+    // add fields/ methods
+    def openDocument(): Unit = {
+      if (this.permissions == Permissions.READ) println("Opening document")
+      else println("reading not allowed")
+    }
 
-    // val somePermissions: Permission = Permissions.READ
+  }
 
-    // object PermissionsWithBits {
-    //     def fromBits(bits: Int): PermissionsWithBits = {
-    //         PermissionsWithBits.NONE
-    //     }
-    // }
+  val somePermissions: Permissions.Value = Permissions.READ
+  println(somePermissions)
+  println(Permissions.values)
 
-    // // standart API 
-    // val somePermissionsOrdinal = somePermissions.ordinal
+  val perm = new Permissions(somePermissions)
+  perm.openDocument()
 
-    // def main(args: Array[String]): Unit = {
-    //     somePermissions.openDocument()
-    // }  
+  println("\nforeach permissions")
+  Permissions.values foreach println
+
 }

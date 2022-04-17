@@ -71,5 +71,5 @@ object CaseClasses extends App {
   }
   println(UnitedKingdom.name)
   println(UnitedKingdom.toString)
-  
+
 }
