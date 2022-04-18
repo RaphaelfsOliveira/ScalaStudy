@@ -35,10 +35,11 @@ object WhatsAFunction extends App {
 
   println(superAdder(3)(4))
 
+  trait MyFunction[A, B] {
+    def apply(ele: A): B
+  }
 }
 
-trait MyFunction[A, B] {
-  def apply(ele: A): B
-}
+
 
 
