@@ -2,6 +2,6 @@ package part3fp
 
 object HOFsCurries extends App {
 
-  val superFunction: (Int, (String, (Int => Boolean)) => Int) => (Int, Int) = ???
+  val superFunction: (Int, (String, (Int => Boolean)) => Int) => (Int => Int) = ???
 
 }
