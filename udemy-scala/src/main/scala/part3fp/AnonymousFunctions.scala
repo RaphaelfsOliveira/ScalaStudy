@@ -24,6 +24,10 @@ object AnonymousFunctions extends App {
   val niceIncrement: Int => Int = _ + 1 // equivalent to x => x + 1
   val niceAdder: (Int, Int) => Int = _ + _ // equivalent to (a, b) => a + b
 
+  println(niceIncrement(2))
+  println(niceAdder(2, 2))
 
+  val superAdder = (x: Int) => (y: Int) => x + y
+  println(superAdder(3)(4))
 
 }
