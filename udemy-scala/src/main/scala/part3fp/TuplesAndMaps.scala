@@ -63,8 +63,17 @@ object TuplesAndMaps extends App {
 
     val names = List("Bob", "Ben", "James", "John", "Jim", "Mary")
 
+    val testJson = Map(
+        "test1" -> List("x", "y", "z"),
+        "test1" -> List("1", "2", "3")
+    )
+
     println(
         names.groupBy(name => name.charAt(0))
+    )
+
+    println(
+        testJson.groupMap(_._1)
     )
 
 }
