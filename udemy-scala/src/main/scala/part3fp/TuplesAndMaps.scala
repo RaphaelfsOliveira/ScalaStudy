@@ -150,7 +150,7 @@ object TuplesAndMaps extends App {
 
     println(mostFriends(net2))
     println(nPeopleWithNoFriends(net2))
-//    println(socialConnections(net2, "Bob", "Jim"))
+    println(socialConnections(net2, "Bob", "Jim"))
     println(socialConnections(net2, "Jack", "Jim"))
 
 }
