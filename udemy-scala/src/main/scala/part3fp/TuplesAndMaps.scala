@@ -118,6 +118,13 @@ object TuplesAndMaps extends App {
         network.count(_._2.isEmpty)
     }
 
+    def socialConnections(network: Map[String, Set[String]], a: String, b: String): Boolean = {
+        val net1 = network(a)
+        val net2 = network(b)
+
+        net1.diff(net2).nonEmpty
+    }
+
     val empty: Map[String, Set[String]] = Map()
     val network = add(add(empty, "Bob"), "Mary")
 
@@ -127,7 +134,7 @@ object TuplesAndMaps extends App {
     println(remove(friend(network, "Bob", "Mary"), "Bob"))
 
     // Jim, Bob, Mary
-    val people = add(add(add(empty, "Bob"), "Mary"), "Jim")
+    val people = add(add(add(add(empty, "Bob"), "Mary"), "Jim"), "Jack")
     val net1 = friend(people, "Bob", "Jim")
     val net2 = friend(net1, "Bob", "Mary")
 
@@ -137,5 +144,7 @@ object TuplesAndMaps extends App {
 
     println(mostFriends(net2))
     println(nPeopleWithNoFriends(net2))
+    println(socialConnections(net2, "Bob", "Jim"))
+    println(socialConnections(net2, "Jack", "Jim"))
 
 }
