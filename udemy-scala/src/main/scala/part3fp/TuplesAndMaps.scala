@@ -74,7 +74,7 @@ object TuplesAndMaps extends App {
     )
 
     // Exercises
-    println("\n Exercises")
+    println("\n### Exercises")
 
     def add(network: Map[String, Set[String]], person: String): Map[String, Set[String]] = {
         network + (person -> Set())
@@ -109,5 +109,10 @@ object TuplesAndMaps extends App {
     val network = add(add(empty, "Bob"), "Mary")
 
     println(network)
+    println(friend(network, "Bob", "Mary"))
+    println(unfriend(friend(network, "Bob", "Mary"), "Bob", "Mary"))
+    println(remove(friend(network, "Bob", "Mary"), "Bob"))
+
+
 
 }
