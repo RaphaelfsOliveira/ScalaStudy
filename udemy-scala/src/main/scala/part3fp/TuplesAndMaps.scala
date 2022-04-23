@@ -122,7 +122,12 @@ object TuplesAndMaps extends App {
         val net1 = network(a)
         val net2 = network(b)
 
-        net1.diff(net2).nonEmpty
+        val relFriendA = net1.flatMap(x => network(x)).contains(a)
+        val relFriendB = net2.flatMap(x => network(x)).contains(b)
+
+        val result: Boolean = relFriendA || relFriendB
+
+        result
     }
 
     val empty: Map[String, Set[String]] = Map()
@@ -136,7 +141,8 @@ object TuplesAndMaps extends App {
     // Jim, Bob, Mary
     val people = add(add(add(add(empty, "Bob"), "Mary"), "Jim"), "Jack")
     val net1 = friend(people, "Bob", "Jim")
-    val net2 = friend(net1, "Bob", "Mary")
+    val net11 = friend(net1, "Bob", "Mary")
+    val net2 = friend(net11, "Jack", "Mary")
 
     println(net2)
     println(nFriends(net2, "Bob"))
@@ -144,7 +150,7 @@ object TuplesAndMaps extends App {
 
     println(mostFriends(net2))
     println(nPeopleWithNoFriends(net2))
-    println(socialConnections(net2, "Bob", "Jim"))
+//    println(socialConnections(net2, "Bob", "Jim"))
     println(socialConnections(net2, "Jack", "Jim"))
 
 }
