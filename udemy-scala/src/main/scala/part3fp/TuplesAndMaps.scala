@@ -115,7 +115,7 @@ object TuplesAndMaps extends App {
     }
 
     def nPeopleWithNoFriends(network: Map[String, Set[String]]): Int = {
-        network.filterKeys(k => network(k).isEmpty).size
+        network.count(_._2.isEmpty)
     }
 
     val empty: Map[String, Set[String]] = Map()
