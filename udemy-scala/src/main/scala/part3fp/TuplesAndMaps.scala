@@ -110,6 +110,10 @@ object TuplesAndMaps extends App {
         else network(person).size
     }
 
+    def mostFriends(network: Map[String, Set[String]]): String = {
+        network.maxBy(pair => pair._2.size)._1
+    }
+
     val empty: Map[String, Set[String]] = Map()
     val network = add(add(empty, "Bob"), "Mary")
 
@@ -126,6 +130,8 @@ object TuplesAndMaps extends App {
     println(net2)
     println(nFriends(net2, "Bob"))
     println(nFriends(net2, "John"))
+
+    println(mostFriends(net2))
 
 
 
