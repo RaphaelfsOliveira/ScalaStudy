@@ -16,7 +16,8 @@ object TuplesAndMaps extends App {
 
     val phonebook = Map(
         "Jim" -> 555,
-        "Daniel" -> 999
+        "Daniel" -> 999,
+        ("JIM", 900),
     ).withDefaultValue(-1)
     println(phonebook)
 
@@ -72,8 +73,26 @@ object TuplesAndMaps extends App {
         names.groupBy(name => name.charAt(0))
     )
 
-    println(
-        testJson.groupMap(_._1)
-    )
+    // Exercises
+    println("\n Exercises")
+
+    def add(network: Map[String, Set[String]], person: String): Map[String, Set[String]] = {
+        network + (person -> Set())
+    }
+
+    def friend(network: Map[String, Set[String]], a: String, b: String): Map[String, Set[String]] = {
+        val friendsA = network(a)
+        val friendsB = network(b)
+
+        network + (a -> (friendsA + b)) + (b -> (friendsB + a))
+    }
+
+    def unfriend(network: Map[String, Set[String]], a: String, b: String): Map[String, Set[String]] = {
+        val friendsA = network(a)
+        val friendsB = network(b)
+
+        network + (a -> (friendsA - b) + (b -> friendsB - a))
+    }
+
 
 }
