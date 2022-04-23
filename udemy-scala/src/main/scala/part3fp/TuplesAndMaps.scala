@@ -105,9 +105,9 @@ object TuplesAndMaps extends App {
         unfriended - person
     }
 
-    def nFriends(network: Map[String, Set[String]], person: String): Map[String, Int] = {
-        if (!network.contains(person)) Map("Not found person" -> 0)
-        else Map(person -> network(person).size)
+    def nFriends(network: Map[String, Set[String]], person: String): Int = {
+        if (!network.contains(person)) 0
+        else network(person).size
     }
 
     val empty: Map[String, Set[String]] = Map()
