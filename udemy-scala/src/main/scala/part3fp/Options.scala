@@ -64,9 +64,11 @@ object Options extends App {
   val connection = Connection.apply(host, port)
   val connectionStatus = connection.map(c => c.connect)
 
+  println("\n## some functions ##")
   println(connectionStatus)
   connectionStatus.foreach(println)
 
+  println("\n## chained calls ##")
   // chained calls
   config.get("host")
     .flatMap(host => config.get("port")
@@ -74,6 +76,7 @@ object Options extends App {
       .map(connection => connection.connect))
     .foreach(println)
 
+  println("\n## for-comprehensions ##")
   // for-comprehensions
   val forConnectionStatus = for {
     host <- config.get("host")
