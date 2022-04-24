@@ -60,6 +60,8 @@ object Options extends App {
   val host = config.getOrElse("host", None).toString
   val port = config.getOrElse("port", None).toString
 
+  println(host, port)
+
   val connection = Connection.apply(host, port)
   val connectionStatus = connection.map(c => c.connect)
 
