@@ -68,4 +68,10 @@ object Options extends App {
   println(connectionStatus)
   connectionStatus.foreach(println)
 
+  config.get("host")
+    .flatMap(host => config.get("port")
+      .flatMap(port => Connection(host, port))
+      .map(connection => connection.connect))
+    .foreach(println)
+
 }
