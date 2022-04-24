@@ -38,6 +38,7 @@ object Options extends App {
   println(myFirstOption.filter(x => x > 10))
   println(myFirstOption.flatMap(x => Option(x * 10)))
 
+  println("\n### Exercises ###")
   // Exercises
   val config: Map[String, String] = Map(
     "host" -> "176.45.36.1",
