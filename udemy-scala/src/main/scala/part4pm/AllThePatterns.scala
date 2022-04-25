@@ -1,6 +1,6 @@
 package part4pm
 
-import part2oop._
+import part2oop.{MyList, Cons, Empty}
 
 object AllThePatterns extends App {
 
@@ -77,8 +77,17 @@ object AllThePatterns extends App {
     case Cons(_, Cons(specialElement, _)) if specialElement % 2 == 0 => // if conds
   }
 
+}
+
+object Exercises extends App {
   // ALL.
+  val numbers = List(1, 2, 3)
+  val numbersMatch = numbers match {
+    case listOfStrings: List[String] => "list of strings" // is the same thing because only checks type List
+    case listOfNumbers: List[Int] => "list of numbers" // is the same thing because only checks type List
+    case _ => ""
+  }
 
-
+  println(numbersMatch)
 
 }
