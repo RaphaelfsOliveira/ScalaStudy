@@ -62,6 +62,22 @@ object AllThePatterns extends App {
   }
 
   // 7. name binding
+  val nameBindingMatch = aList match {
+    case nonEmptyList @ Cons(h, t) => // name binding => use name later(here)
+    case Cons(1, rest @ Cons(2, _)) => // name binding inside nested patterns
+  }
+
+  // 8. multi-patterns
+  val multiPattern = aList match {
+    case Empty | Cons(0, _) => // compound pattern (multi-pattern)
+  }
+
+  // 9. if guards
+  val secondElementSpecial = aList match {
+    case Cons(_, Cons(specialElement, _)) if specialElement % 2 == 0 => // if conds
+  }
+
+  // ALL.
 
 
 
