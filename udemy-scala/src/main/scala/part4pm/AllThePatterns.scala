@@ -46,7 +46,23 @@ object AllThePatterns extends App {
   }
 
   // 5. list patterns
-  
+  val standardList = List(1, 2, 3, 4)
+  val standardListMatching: Unit = standardList match {
+    case List(1, _, _, _) => // extractor - advanced
+    case List(1, _*) => // List or arbitrary length - advanced
+    case 1 :: List(_) => // infix pattern
+    case List(1, 2, 3) :+ 4 => // infix pattern
+  }
+
+  // 6. type specifies
+  val unknown: Any = 2
+  val unknownMatch = unknown match {
+    case list: List[Int] => // explicit type specified
+    case _ =>
+  }
+
+  // 7. name binding
+
 
 
 }
