@@ -45,7 +45,7 @@ object HandlingFailure extends App {
   // for-comprehensions
   println("\n## Exercises")
 
-  val hostname = "hostname"
+  val host = "hostname"
   val port = "8080"
   def renderHTML(page: String): Unit = println(page)
 
@@ -71,13 +71,19 @@ object HandlingFailure extends App {
     def getSafeConnection(host: String, port: String): Try[Connection] = Try(getConnection(host, port))
   }
 
-  val possibleConnection = HttpService.getSafeConnection(hostname, port)
+  val possibleConnection = HttpService.getSafeConnection(host, port)
   val possibleHTML = possibleConnection.flatMap(connection => connection.getSafe("/home"))
   possibleHTML.foreach(renderHTML)
 
   // shorthand version
-  HttpService.getSafeConnection(hostname, port)
+  HttpService.getSafeConnection(host, port)
     .flatMap(connection => connection.getSafe("/home"))
     .foreach(renderHTML)
+
+  // for-comprehensios version
+  for {
+    connection <- HttpService.getSafeConnection(host, port)
+    html <- connection.getSafe("/hom")
+  } renderHTML(html)
 
 }
