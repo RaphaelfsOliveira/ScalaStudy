@@ -39,7 +39,14 @@ object AllThePatterns extends App {
   // PMs can be NESTED (PMs podem ser aninhados)
 
   // 4. case classes - constructor pattern
-  val aList: MyList[Any] = Cons(1, Cons(2), Empty)
+  val aList: MyList[Int] = Cons(1, Cons(2, Empty))
+  val matchAList: Unit = aList match {
+    case Empty =>
+    case Cons(head, tail) =>
+  }
+
+  // 5. list patterns
+  
 
 
 }
