@@ -14,9 +14,7 @@ object PatternMatching extends App {
     case 3 => "third time is the charm"
     case _ => "something else" // _ = WILDCARD
   }
-
-  println(x)
-  println(description)
+  println(s"$x -> $description")
 
   // 1. Decompose values
   case class Person(name: String, age: Int)
