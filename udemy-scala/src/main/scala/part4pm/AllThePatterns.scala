@@ -1,5 +1,7 @@
 package part4pm
 
+import part2oop._
+
 object AllThePatterns extends App {
 
   // 1. Constants
@@ -34,6 +36,10 @@ object AllThePatterns extends App {
   val matchNestedATuple: Unit = nestedTuple match {
     case (_, (2, v)) =>
   }
-  // PMs can be NESTED
+  // PMs can be NESTED (PMs podem ser aninhados)
+
+  // 4. case classes - constructor pattern
+  val aList: MyList[Any] = Cons(1, Cons(2), Empty)
+
 
 }
