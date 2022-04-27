@@ -94,7 +94,10 @@ object BracelessSyntax {
   // 3000 or more lines of code
   end Animal // for if, match, for, methods, classes, traits, enums, objects
 
-
+  // anonymous classes
+  val aSpecialAnimal = new Animal:
+      override def eat(): Unit = println("I'm special")
+  
 
   def main(args: Array[String]): Unit = {}
 
