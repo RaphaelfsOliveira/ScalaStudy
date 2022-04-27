@@ -79,13 +79,21 @@ object BracelessSyntax {
   // function indentation
   def compute_v2(arg: Int): Int =
     val partialResult = 40
-    arg + partialResult
+    partialResult + arg
 
   // scala 3
   // class indentation
   class Animal:
     def eat(): Unit =
       println("eating")
+
+    def grow(): Unit =
+      println("I'm growing")
+    end grow // the end of method
+
+  // 3000 or more lines of code
+  end Animal // for if, match, for, methods, classes, traits, enums, objects
+
 
 
   def main(args: Array[String]): Unit = {}
