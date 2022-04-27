@@ -69,8 +69,24 @@ object BracelessSyntax {
       case 2 => "double or nothing"
       case _ => "something else"
 
-  // methods without braces
+  // methods without
+  def compute(arg: Int): Int = {
+    val partialResult = 40
+    partialResult + 2
+  }
 
+  // scala 3
+  // function indentation
+  def compute_v2(arg: Int): Int =
+    val partialResult = 40
+    arg + partialResult
+
+  // class indentation
+  class Animal:
+    def eat(): Unit =
+      println("eating")
+
+  
   def main(args: Array[String]): Unit = {}
 
 }
