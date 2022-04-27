@@ -81,12 +81,13 @@ object BracelessSyntax {
     val partialResult = 40
     arg + partialResult
 
+  // scala 3
   // class indentation
   class Animal:
     def eat(): Unit =
       println("eating")
 
-  
+
   def main(args: Array[String]): Unit = {}
 
 }
