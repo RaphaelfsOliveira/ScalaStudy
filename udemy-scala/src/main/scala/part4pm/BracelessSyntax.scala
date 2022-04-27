@@ -56,7 +56,19 @@ object BracelessSyntax {
     case _ => "something else"
   }
 
-  
+  // scala 3
+  val aPatternMatch = meaningOfLife match
+    case 1 => "the One"
+    case 2 => "double or nothing"
+    case _ => "something else"
+
+  // or
+
+  val aPatternMatch =
+    meaningOfLife match
+      case 1 => "the One"
+      case 2 => "double or nothing"
+      case _ => "something else"
 
   def main(args: Array[String]): Unit = {}
 
