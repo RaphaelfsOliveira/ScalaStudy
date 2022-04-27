@@ -97,7 +97,7 @@ object BracelessSyntax {
   // anonymous classes
   val aSpecialAnimal = new Animal:
       override def eat(): Unit = println("I'm special")
-  
+
 
   def main(args: Array[String]): Unit = {}
 
