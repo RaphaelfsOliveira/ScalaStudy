@@ -32,5 +32,6 @@ object Functions extends App {
   println(greeting("David", 12))
   println(factorial(5))
   println(fibonacci(8))
+  
 
 }
