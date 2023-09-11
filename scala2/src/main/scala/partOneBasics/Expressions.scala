@@ -37,4 +37,6 @@ object Expressions extends App {
   }
   println(aCodeBlock)
 
+  // 1. string is an value, println is a expression
+
 }
